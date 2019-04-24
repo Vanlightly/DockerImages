@@ -7,7 +7,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   kafka1:
-    image: jackvanlightly/kafka-cp-with-http-reporter:latest
+    image: jackvanlightly/kafka-cp-with-http-reporter:docker0.1
     depends_on:
       - zookeeper
     ports:
@@ -23,7 +23,7 @@ services:
       KAFKA_METRIC_REPORTERS: "cloudkarafka.kafka_http_reporter"
 
   kafka2:
-    image: jackvanlightly/kafka-cp-with-http-reporter:latest
+    image: jackvanlightly/kafka-cp-with-http-reporter:docker0.1
     depends_on:
       - zookeeper
     ports:
@@ -39,7 +39,7 @@ services:
       KAFKA_METRIC_REPORTERS: "cloudkarafka.kafka_http_reporter"
 
   kafka3:
-    image: jackvanlightly/kafka-cp-with-http-reporter:latest
+    image: jackvanlightly/kafka-cp-with-http-reporter:docker0.1
     depends_on:
       - zookeeper
     ports:
@@ -54,16 +54,16 @@ services:
       KAFKA_CONFLUENT_SUPPORT_METRICS_ENABLE: "false"
       KAFKA_METRIC_REPORTERS: "cloudkarafka.kafka_http_reporter"
 
-  manager:
-    image: jackvanlightly/cloudkarafka-manager:latest
-    hostname: manager
-    environment:
-      AUTH_MODE: none-with-write
-      ZOOKEEPER: zookeeper:2181
-    ports:
-      - "8080:8080"
-    depends_on:
-      - kafka1
-      - kafka2
-      - kafka3
-      - zookeeper
+  # manager:
+  #   image: jackvanlightly/cloudkarafka-manager:latest
+  #   hostname: manager
+  #   environment:
+  #     AUTH_MODE: none-with-write
+  #     ZOOKEEPER: zookeeper:2181
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - kafka1
+  #     - kafka2
+  #     - kafka3
+  #     - zookeeper

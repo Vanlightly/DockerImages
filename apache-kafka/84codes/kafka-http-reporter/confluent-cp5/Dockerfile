@@ -1,5 +1,5 @@
-FROM confluentinc/cp-kafka:5.0.2
+FROM confluentinc/cp-kafka:5.2.1
 
-COPY kafka-http-reporter-0.3.2-standalone.jar /usr/share/java/kafka/kafka-http-reporter-0.3.2-standalone.jar
+COPY kafka-http-reporter-0.3.3-standalone.jar /usr/share/java/kafka/kafka-http-reporter-0.3.3-standalone.jar
 
 CMD ["/etc/confluent/docker/run"]
